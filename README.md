@@ -32,18 +32,15 @@ Applications of SRAM include serving as cache memory in microprocessors, providi
 ## Architecture
 - In this section we will see the architecture integrates a 16×8 SRAM array, a dual-mode RAM/ICM logic controller, and key peripheral circuits—decoder, sense amplifier, precharge, and write driver— offering a compact, energy-efficient solution for future embedded memory systems. Then we will discuss about the overall operation of this system which will give the rough idea about the working of various components simultaneously and how the data is being stored and then how we read that from SRAM cell.
 
-
-  <p align="center">
-      ![architecture_sram](https://github.com/user-attachments/assets/2aa5157c-4633-4ca1-9d88-2eb731b06fc3)
-  </p>
-  <p align="center"> Figure 1: Architecture_SRAM</p>
+<img src="https://github.com/manas60/PS_project/blob/c55684821099f65b76b476f67eef0244b86f7ff5/images/8Tarch.png" alt="Architecture_SRAM" title="Figure 1" height="500" width="4000">
+<p align="center"> Figure 1: Architecture_SRAM</p>
 
 - Figure 1 respresents the the architecture of the 16 byte SRAM along with some supporting elements like precharge circuit, write driver etc.
 - We can read or write 8 byte data in the memory element and the total amount of memeory avaliable is 16 byte.
 - The design of 16 byte SRAM is done by arranging the **6T SRAM cells** as 16 row and in ach row there will be 8 cells
    for each row there will a word line (WL) and for each colum there will a BL and BLB so in total there will be 16 WL and 8 BL and BLB.
-- 8T SRAM cells are designed using a back to back inverter and four access transistors, the design part will be discussed later.
-- 32 transistors in a row will lead to some parasitic capacitances that is refered as Cpar in the figure 1
+- 6T SRAM cells are designed using a back to back inverter and two access transistors, the design part will be discussed later.
+- 16 transistors in a row will lead to some parasitic capacitances that is refered as Cpar in the figure 1
 
 #### Operation
 
@@ -65,20 +62,11 @@ In this section, Various components of projects are explained in detail and real
 ### 6T_SRAM
 <div align = "center">
 <figure>
-    <img src="./images/SRAM.png" alt="6T SRAM" title="Figure 4" height="500" width="700" align="center">
+    <img src="images/SRAM.png" alt="6T SRAM" title="Figure 4" height="500" width="700" align="center">
 </figure>
 <p></p>
 <p>&nbsp;Figure 6: 6T SRAM</p>
 </div>
-
-<!--<table align="center">
-  <tr>
-    <td align="center">
-      <img src="./images/SRAM.png" alt="6T SRAM" title="Figure 4" height="500" width="700">
-    </td>
-  </tr>
-</table>-->
-
 
 - The above fingure i.e figure 4 shows the classic structure of a 6T sram which can store one bit data.
 - These are basically two back to back inverter with access transistor i.e M3 and M4.
@@ -119,20 +107,19 @@ In this section, Various components of projects are explained in detail and real
   - In this section we will present the layouts of the entire design and the subcomponents of the design.
   - For the layout design we are using **cadence virtuoso** where as for verification like DRC and LVS we are using  **PVS**.
 
-    ![SRAM](https://github.com/user-attachments/assets/0e30bd6b-d171-4b3d-9422-2f3bd35296e7)
+    ![SRAM_8T](https://github.com/user-attachments/assets/3120aa21-b7e6-4ea1-b571-1ec64b04da2c)
     <p align="center">8T SRAM</p>
 
-    ![Precharge_ckt](https://github.com/user-attachments/assets/9bb384d5-d662-4a19-8a6a-6229d8f07390)
+    ![precharge](https://github.com/user-attachments/assets/b760c8d5-de89-4f2d-9404-ea9d03fa12d1)
     <p align="center">Precharge circuit</p>   
     
     ![Decoder](https://github.com/user-attachments/assets/d7213918-6ff7-490b-a815-385dd59c466f)
     <p align="center">Column Decoder</p> 
 
-    ![Decoder_box](https://github.com/user-attachments/assets/bb9b3f2f-75a7-41b4-b79d-739d72f79f31)
+    ![decoder_box](https://github.com/user-attachments/assets/0d03fb08-161e-49c7-93fe-8136a317d7df)
     <p align="center">dual-mode RAM/ICM logic controller</p>
 
-    
-    ![Sense amplifier](https://github.com/user-attachments/assets/bf522ec0-207f-4b5d-8e39-4b99426f9898)
+    ![senseamplifier](https://github.com/user-attachments/assets/e4787ce8-39e7-4ab4-8688-f07ad3797e42)
     <p align="center">Sense Amplifier</p>
     
     ![Write driver](https://github.com/user-attachments/assets/c19a8d4e-76f0-49a1-9217-46b4cade56db)
